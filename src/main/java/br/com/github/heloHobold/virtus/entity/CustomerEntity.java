@@ -1,14 +1,31 @@
 package br.com.github.heloHobold.virtus.entity;
 
-import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.*;
 
-@Document(collection = "Customer")
+import javax.persistence.*;
+
+@Table(name = "customers")
+@Entity(name = "Customer")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class CustomerEntity {
-    private String id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
+
+    @Column(name = "cpf")
     private String cpf;
+
     private String email;
+
+    @Column(name = "phone_number")
     private String phoneNumber;
+
+    @Column(name = "activity_status")
+    private boolean activityStatus = true;
 }

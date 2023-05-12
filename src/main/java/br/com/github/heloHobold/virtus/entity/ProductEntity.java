@@ -1,15 +1,12 @@
 package br.com.github.heloHobold.virtus.entity;
 
-import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
+import br.com.github.heloHobold.virtus.enumerated.ProductCategoryEnum;
 
 import java.math.BigDecimal;
 
-@Document(collection = "Produtc")
-@Data
 public class ProductEntity {
-    private String id;
+    private Long id;
     private String name;
-    private String category;
+    private ProductCategoryEnum category;
     private BigDecimal unitValue;
 }

@@ -1,0 +1,31 @@
+package br.com.github.heloHobold.virtus.dto.request.customer;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode()
+public class CustomerEditRequestDTO {
+
+    @Pattern(regexp = "^[A-Z][A-Za-z ]*$", message = "Apenas letras devem ser usadas")
+    @NotBlank
+    private String name;
+
+    @Email
+    @NotBlank
+    private String email;
+
+    @JsonProperty("phone_number")
+    @NotBlank
+    private String phoneNumber;
+}

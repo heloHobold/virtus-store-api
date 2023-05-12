@@ -17,10 +17,10 @@ public class GlobalHandlerException extends ResponseEntityExceptionHandler {
 
     private static final String INTERNAL_ERROR = "Erro interno no servidor.";
 
-//    @ExceptionHandler(value = {Exception.class})
-//    protected ResponseEntity<ErrorMessage> handlerException(Exception ex) {
-//        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorMessage(INTERNAL_ERROR));
-//    }
+    @ExceptionHandler(value = {Exception.class})
+    protected ResponseEntity handlerException(Exception ex) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error: " + ex.getLocalizedMessage());
+    }
 
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request){
         List<String> validationList = ex.getBindingResult().getFieldErrors().stream().map(fieldError ->
