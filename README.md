@@ -1,1 +1,1 @@
-# virtus-strore-api
+# virtus-store-api
