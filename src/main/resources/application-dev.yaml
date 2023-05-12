@@ -3,3 +3,9 @@ spring:
     url: jdbc:mysql://localhost/virtus_store
     username: heloHobold
     password: data
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect

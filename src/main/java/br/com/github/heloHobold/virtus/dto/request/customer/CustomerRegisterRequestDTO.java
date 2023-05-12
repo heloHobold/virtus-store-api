@@ -17,7 +17,6 @@ import javax.validation.constraints.Pattern;
 @EqualsAndHashCode()
 public class CustomerRegisterRequestDTO {
 
-    @Pattern(regexp = "^[A-Z][A-Za-z ]*$", message = "Apenas letras devem ser usadas")
     @NotBlank
     private String name;
 

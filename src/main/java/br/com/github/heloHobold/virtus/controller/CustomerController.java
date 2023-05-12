@@ -7,6 +7,8 @@ import br.com.github.heloHobold.virtus.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,7 +32,7 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<CustomerResponseDTO>> listAllCustomers(Pageable pageable) {
+    public ResponseEntity<Page<CustomerResponseDTO>> listAllCustomers(@PageableDefault(size = 10, sort = {"name"}, direction = Sort.Direction.ASC) Pageable pageable) {
         Page<CustomerResponseDTO> customersResponseDTO = customerService.listAll(pageable);
         return ResponseEntity.ok(customersResponseDTO);
     }
