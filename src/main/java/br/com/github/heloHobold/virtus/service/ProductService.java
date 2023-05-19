@@ -16,11 +16,10 @@ import org.springframework.web.server.ResponseStatusException;
 public class ProductService {
 
     @Autowired
-    private ModelMapper modelMapper;
-
-    @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ModelMapper modelMapper;
 
     public ProductResponseDTO add(ProductRequestDTO productRequestDTO) {
         ProductEntity productEntity = modelMapper.map(productRequestDTO, ProductEntity.class);
